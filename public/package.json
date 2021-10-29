@@ -1,0 +1,15 @@
+{
+  "name": "public",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ramsés",
+  "license": "ISC",
+  "dependencies": {
+    "firebase": "^8.10.0",
+    "firebase-admin": "^10.0.0"
+  }
+}
