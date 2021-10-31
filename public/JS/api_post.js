@@ -1,4 +1,4 @@
-import { getFirestore,doc,addDoc,collection } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js"
+import { getFirestore,doc,addDoc, setDoc,collection } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js"
 const db=getFirestore()
 document.getElementById("botao").addEventListener("click",(event)=>{
   event.preventDefault()
@@ -12,10 +12,19 @@ document.getElementById("botao").addEventListener("click",(event)=>{
         data: data
       }
       try {
-        const docRef = addDoc(collection(db, "conteúdos"), postagem);
+        const POST = setDoc(doc(db,"conteúdos",postagem.title), postagem)
+        alert("Postagem Criada")
+      } catch (e) {
+        console.log(e)
+      }
+      location.reload()
+      
+      /*
+      try{
+        const docRef = addDoc(collection(db, "conteúdos",postagem.title), postagem);
         alert("Postagem feita com sucesso!");
       } catch (e) {
         console.error("Error adding document: ", e);
       }
-
+      */
     })
