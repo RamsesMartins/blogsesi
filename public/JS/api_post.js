@@ -17,13 +17,4 @@ document.getElementById("botao").addEventListener("click",(event)=>{
       } catch (e) {
         console.log(e)
       }
-      
-      /*
-      try{
-        const docRef = addDoc(collection(db, "conteúdos",postagem.title), postagem);
-        alert("Postagem feita com sucesso!");
-      } catch (e) {
-        console.error("Error adding document: ", e);
-      }
-      */
     })
