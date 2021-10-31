@@ -13,7 +13,7 @@ document.getElementById("botao").addEventListener("click",(event)=>{
       }
       try {
         const docRef = addDoc(collection(db, "conteúdos"), postagem);
-        console.log("Document written with ID: ", docRef.id);
+        alert("Postagem feita com sucesso!");
       } catch (e) {
         console.error("Error adding document: ", e);
       }
