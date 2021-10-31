@@ -9,10 +9,10 @@
     
     <title>Blog Sesi</title>
 </head>
-<body>
+<body style="text-align: center;">
     <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js"
-    import { getFirestore , doc, setDoc } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js"
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js"
     const firebaseConfig = initializeApp({
     apiKey: "AIzaSyAqDmRh4jLFRNBPk66HXP0jJQMdwWXrJvI",
     authDomain: "sesinovoensinomedio.firebaseapp.com",
@@ -22,12 +22,19 @@
     appId: "1:476150079392:web:a4bbe058602ec6ee308ec5",
     measurementId: "G-4ZB3BJ0DHV"
   });
-    const db = getFirestore()
-     setDoc(doc(db,"conteúdos","não sei"),{
-      texto: "Olhe nós de novo",
-      data: 12
-    })
+  initializeApp.firestore
+
+  
   </script>
-    <a href="HTML/post.html"><button>Postar</button></a>
+    <form >
+        <input type="text" name="titulo" id="title" placeholder="TÍTULO"><br>
+        <input type="date" name="data" id="data"><br>
+        <textarea name="conteudo" id="conteudo" cols="30" rows="10" placeholder="Insira o texto aqui..."></textarea>
+        
+        <button id="botao" type="button">Postar!</button>
+        <script src="../JS/api_post.js" type="module"></script>
+</form>
+  
+   
 </body>
 </html>
