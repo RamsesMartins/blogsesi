@@ -17,7 +17,6 @@ document.getElementById("botao").addEventListener("click",(event)=>{
       } catch (e) {
         console.log(e)
       }
-      location.reload()
       
       /*
       try{
