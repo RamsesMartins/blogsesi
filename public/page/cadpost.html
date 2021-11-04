@@ -22,6 +22,10 @@
     appId: "1:476150079392:web:a4bbe058602ec6ee308ec5",
     measurementId: "G-4ZB3BJ0DHV"
   });
+  const urlParams = new URLSearchParams(window.location.search)
+  if(urlParams.get("l")!="v"){
+    window.location = "../404.html"
+  }
 
   
   </script>

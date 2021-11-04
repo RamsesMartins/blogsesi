@@ -3,18 +3,21 @@ const db=getFirestore()
 document.getElementById("botao").addEventListener("click",(event)=>{
   event.preventDefault()
     var titulo, conteudo, data
-    titulo = document.getElementById("title").value
-    conteudo = document.getElementById("conteudo").value
-    data =  document.getElementById("data").value
+    titulo = document.getElementById("title")
+    conteudo = document.getElementById("conteudo")
+    data =  document.getElementById("data")
     var postagem={
-        title: titulo,
-        texto: conteudo,
-        data: data
+        title: titulo.value,
+        texto: conteudo.value,
+        data: data.value
       }
       try {
         const POST = setDoc(doc(db,"conteúdos",postagem.title), postagem)
-        alert("Postagem Criada")
-      } catch (e) {
+        
+      }catch (e) {
         console.log(e)
-      }
+      }finally{
+        alert("Postagem Criada")
+        titulo.value = ""
+      } 
     })
