@@ -25,12 +25,12 @@
         });
     </script>
     <script type="text/x-handlebars-template" id="postagens">
-        {{#each}}
-        <h1>{{name}}</h1>
-        <h5>Criado em: {{data}}</h2>
-        <h4>{{texto}}</p>
-        <form action="" method="get"></form>
-        {{/foreach}}
+        {{#each titulos}}
+        <h1>{{this}}</h1>
+        {{/each}}
+        {{#each textos}}
+        <h2>{{this}}</h2>
+        {{/each}}
     </script>
 
 
@@ -39,21 +39,19 @@
         
         const db = getFirestore()
         const q = query(collection(db, "conteúdos"), where("title","!=",""));
-
+        var titulos = []
+        var textos = []
+        var datas = []
         const querySnapshot = await getDocs(q);
         querySnapshot.forEach((doc) => {
-            console.log(doc.id, " => ", doc.data());
+           titulos.push(doc.data())
         });
-
+        console.log(titulos)        
+        var nomes = ["carlos", "lucas", "gabriel"]
         const TemplateString = $("#postagens").html()
         const PersonTemplate = Handlebars.compile(TemplateString)
-        const html = PersonTemplate({
-            name: docSnap.data().title,
-            texto: docSnap.data().texto,
-            data: docSnap.data().data
-        })
+        const html = PersonTemplate({})
         console.log(html)
-        console.log(docSnap)
         $("#body").append(html)
     </script>
 </body>
