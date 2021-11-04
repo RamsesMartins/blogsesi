@@ -5,13 +5,6 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <title>Document</title>
-</head>
-
-<body id="body">
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js"
         const firebaseConfig = initializeApp({
@@ -24,15 +17,24 @@
             measurementId: "G-4ZB3BJ0DHV"
         });
     </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+    <title id="d">Document</title>
+</head>
+
+<body id="body">
+
     <script type="text/x-handlebars-template" id="postagens">
         {{#each titulos}}
-        <h1>{{this}}</h1>
+        <h1>{{this.title}}</h1>
+        <h5>Criado em: {{this.data}}</h5>
+        <h2>{{this.texto}}</h2><br>
         {{/each}}
         {{#each textos}}
         <h2>{{this}}</h2>
         {{/each}}
     </script>
-
 
     <script type="module">
         import { getFirestore, doc, getDocs, collection, query, where } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js"
@@ -46,12 +48,10 @@
         querySnapshot.forEach((doc) => {
            titulos.push(doc.data())
         });
-        console.log(titulos)        
         var nomes = ["carlos", "lucas", "gabriel"]
         const TemplateString = $("#postagens").html()
         const PersonTemplate = Handlebars.compile(TemplateString)
-        const html = PersonTemplate({})
-        console.log(html)
+        const html = PersonTemplate({titulos: titulos})
         $("#body").append(html)
     </script>
 </body>

@@ -1,43 +1,68 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    
-    <title>Cadastro de Postagens</title>
-</head>
-<body style="text-align: center;">
-    <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js"
-    import { getFirestore } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js"
-    const firebaseConfig = initializeApp({
-    apiKey: "AIzaSyAqDmRh4jLFRNBPk66HXP0jJQMdwWXrJvI",
-    authDomain: "sesinovoensinomedio.firebaseapp.com",
-    projectId: "sesinovoensinomedio",
-    storageBucket: "sesinovoensinomedio.appspot.com",
-    messagingSenderId: "476150079392",
-    appId: "1:476150079392:web:a4bbe058602ec6ee308ec5",
-    measurementId: "G-4ZB3BJ0DHV"
-  });
-  const urlParams = new URLSearchParams(window.location.search)
-  if(urlParams.get("l")!="v"){
-    window.location = "../404.html"
-  }
 
-  
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+  <title>Cadastro de Postagens</title>
+</head>
+
+<body style="text-align: center;">
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js"
+    import { getFirestore, doc, addDoc, setDoc, collection } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js"
+    const firebaseConfig = initializeApp({
+      apiKey: "AIzaSyAqDmRh4jLFRNBPk66HXP0jJQMdwWXrJvI",
+      authDomain: "sesinovoensinomedio.firebaseapp.com",
+      projectId: "sesinovoensinomedio",
+      storageBucket: "sesinovoensinomedio.appspot.com",
+      messagingSenderId: "476150079392",
+      appId: "1:476150079392:web:a4bbe058602ec6ee308ec5",
+      measurementId: "G-4ZB3BJ0DHV"
+    });
+    const urlParams = new URLSearchParams(window.location.search)
+    if (urlParams.get("l") != "v") {
+      window.location = "../404.html"
+    }
+    document.getElementById("botao").addEventListener("click", (event) => {
+      event.preventDefault()
+      var titulo, conteudo, data
+      titulo = document.getElementById("title")
+      conteudo = document.getElementById("conteudo")
+      data = document.getElementById("data")
+      var postagem = {
+        title: titulo.value,
+        texto: conteudo.value,
+        data: data.value
+      }
+      try {
+        const POST = setDoc(doc(db, "conteúdos", postagem.title), postagem)
+
+      } catch (e) {
+        console.log(e)
+      } finally {
+        alert("Postagem Criada")
+        titulo.value = ""
+      }
+    })
+
+
   </script>
-    <form >
-        <input type="text" name="titulo" id="title" placeholder="TÍTULO"><br>
-        <input type="date" name="data" id="data"><br>
-        <textarea name="conteudo" id="conteudo" cols="30" rows="10" placeholder="Insira o texto aqui..."></textarea>
-        
-        <button id="botao" type="button">Postar!</button>
-        <script src="../JS/api_post.js" type="module"></script>
-</form>
-  
-   
+
+  <form>
+    <input type="text" name="titulo" id="title" placeholder="TÍTULO"><br>
+    <input type="date" name="data" id="data"><br>
+    <textarea name="conteudo" id="conteudo" cols="30" rows="10" placeholder="Insira o texto aqui..."></textarea>
+
+    <button id="botao" type="button">Postar!</button>
+
+  </form>
+
+
 </body>
+
 </html>
