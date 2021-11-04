@@ -20,7 +20,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"
         integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
-    <title id="d">Document</title>
+    <title id="d">Postagens</title>
 </head>
 
 <body id="body">
@@ -30,9 +30,8 @@
         <h1>{{this.title}}</h1>
         <h5>Criado em: {{this.data}}</h5>
         <h2>{{this.texto}}</h2><br>
-        {{/each}}
-        {{#each textos}}
-        <h2>{{this}}</h2>
+        <img src="{{teste}}" alt="teste">
+        img
         {{/each}}
     </script>
 
@@ -51,7 +50,8 @@
         var nomes = ["carlos", "lucas", "gabriel"]
         const TemplateString = $("#postagens").html()
         const PersonTemplate = Handlebars.compile(TemplateString)
-        const html = PersonTemplate({titulos: titulos})
+        const html = PersonTemplate({titulos: titulos,
+        teste: "https://img.olhardigital.com.br/wp-content/uploads/2018/09/20180903133856-860x450.jpg"})
         $("#body").append(html)
     </script>
 </body>
