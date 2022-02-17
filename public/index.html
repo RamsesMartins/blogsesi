@@ -1,42 +1,25 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-
-  <title>Blog Sesi</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <style>
+        p {
+          background-image: url('img_girl.jpg');
+        }
+        </style>
 </head>
-
 <body>
-  <!--SCRIPTS-->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-app.js"
-    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.2.0/firebase-firestore.js"
-    const firebaseConfig = initializeApp({
-      apiKey: "AIzaSyAqDmRh4jLFRNBPk66HXP0jJQMdwWXrJvI",
-      authDomain: "sesinovoensinomedio.firebaseapp.com",
-      projectId: "sesinovoensinomedio",
-      storageBucket: "sesinovoensinomedio.appspot.com",
-      messagingSenderId: "476150079392",
-      appId: "1:476150079392:web:a4bbe058602ec6ee308ec5",
-      measurementId: "G-4ZB3BJ0DHV"
-    });
-    $.get("/page/layout/arquivo.html", function(resultado){
-     $("#mensagem").html(resultado);
-})
-  </script>
-  <!--/SCRIPTS-->
 
-  <a href="page/postagem.html"><button>Ver Posts</button></a>
+    <div>
+        <h1>Espaço</h1>
+    </div>
 
-
-
+    <div>
+        <img
+    </div>
 </body>
-
 </html>
