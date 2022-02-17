@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/RamsesMartins/blogsesi/issues"
   },
-  "homepage": "https://github.com/RamsesMartins/blogsesi#readme"
+  "homepage": "https://github.com/RamsesMartins/blogsesi#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
