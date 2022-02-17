@@ -1,20 +1,19 @@
 {
   "name": "blogsesi",
   "version": "1.0.0",
-  "description": "Um site para os alunos do NEM Sesi Linhares",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "https://sesilinharesmat@dev.azure.com/sesilinharesmat/Blog%20Sesi/_git/Blog%20Sesi"
+    "url": "git+https://github.com/RamsesMartins/blogsesi.git"
   },
-  "author": "Ramsés",
+  "author": "",
   "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.3",
-    "firebase": "^8.10.0",
-    "firebase-admin": "^10.0.0"
-  }
+  "bugs": {
+    "url": "https://github.com/RamsesMartins/blogsesi/issues"
+  },
+  "homepage": "https://github.com/RamsesMartins/blogsesi#readme"
 }
