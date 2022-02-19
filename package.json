@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/RamsesMartins/blogsesi#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "nodemon": "^2.0.15",
+    "sequelize": "^6.16.2",
+    "sqlite3": "^5.0.2"
   }
 }
